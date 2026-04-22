@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>South Sky Travel | Guangdong Tours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#19b5c9;
+  --primary-dark:#0b8fa3;
+  --secondary:#ff8a65;
+  --accent:#7c4dff;
+  --bg:#f8fcff;
+  --bg-soft:#eef8fb;
+  --card:#ffffff;
+  --text:#17324d;
+  --muted:#5f7891;
+  --line:#dbe9f3;
+  --shadow:0 12px 35px rgba(21,87,120,.12);
+  --radius:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(25,181,201,.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(255,138,101,.18), transparent 24%),
+    linear-gradient(180deg,#f9fdff 0%,#f2fbff 100%);
+  color:var(--text);line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;border-radius:18px}
+.container{width:min(1180px,92%);margin:auto}
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.84);backdrop-filter:blur(14px);border-bottom:1px solid rgba(219,233,243,.9)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.18rem}
+.logo-badge{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:var(--shadow)}
+.nav-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-weight:500;transition:.25s}
+.nav-links a:hover,.nav-links a.active{color:var(--primary-dark)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:12px 18px;border-radius:999px;font-weight:600;box-shadow:0 10px 24px rgba(25,181,201,.25)}
+.hero{padding:70px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:36px;align-items:center}
+.hero-badge,.tag{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--primary-dark);font-weight:600;box-shadow:var(--shadow)}
+.hero h1{font-size:clamp(2.2rem,4vw,4.15rem);line-height:1.06;font-weight:800;margin:18px 0}
+.hero h1 span{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);font-size:1.04rem;max-width:640px;margin-bottom:28px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;transition:.25s;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:0 12px 24px rgba(25,181,201,.25)}
+.btn-light{background:#fff;color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow)}
+.btn:hover{transform:translateY(-2px)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat,.card,.tour-card,.feature-card,.price-card,.contact-card,.text-card,.image-card{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.stat{padding:18px}
+.stat h3{font-size:1.6rem;color:var(--primary-dark);margin-bottom:4px}
+.stat p{color:var(--muted);font-size:.92rem}
+.hero-card{background:rgba(255,255,255,.78);border:1px solid rgba(219,233,243,.9);border-radius:30px;padding:16px;box-shadow:0 24px 48px rgba(20,85,120,.16)}
+.hero-card .overlay-box{margin-top:16px;background:linear-gradient(135deg,#fff,#f2fbff);border:1px solid var(--line);border-radius:20px;padding:18px}
+.overlay-box small{color:var(--primary-dark);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.overlay-box h3{margin-top:6px;font-size:1.25rem;line-height:1.35}
+section{padding:40px 0 70px}
+.section-head{text-align:center;margin-bottom:34px}
+.section-head h2{font-size:clamp(1.8rem,3vw,3rem);margin:14px 0 10px;font-weight:800}
+.section-head p{color:var(--muted);max-width:760px;margin:auto}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card,.destination-card,.feature-card,.price-card,.text-card,.contact-card{overflow:hidden}
+.destination-card .content,.feature-card .content,.price-card .content,.text-card .content{padding:20px}
+.destination-card h3,.feature-card h3,.price-card h3,.text-card h3{margin-bottom:8px;font-size:1.22rem}
+.destination-card p,.feature-card p,.price-card p,.text-card p,.muted{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#eef8fb;color:var(--primary-dark);padding:8px 12px;border-radius:999px;font-size:.82rem;font-weight:600;border:1px solid #d5eef2}
+.timeline{display:flex;flex-direction:column;gap:18px}
+.tour-card{padding:20px;display:flex;gap:16px;align-items:flex-start}
+.tour-icon{min-width:58px;width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:1.5rem;background:linear-gradient(135deg,#e5faff,#fff0ea);border:1px solid var(--line)}
+.tour-time{display:inline-block;margin-bottom:8px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:8px 12px;border-radius:999px;font-size:.82rem;font-weight:700}
+.tour-card h3{font-size:1.12rem;margin-bottom:6px}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}
+.feature-card{padding:22px}
+.feature-icon{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;margin-bottom:14px;font-size:1.6rem;background:linear-gradient(135deg,#e8fafd,#fef1ec)}
+.price-card .price{font-size:1.8rem;font-weight:800;color:var(--primary-dark);margin-bottom:8px}
+.notice{padding:18px 20px;border-radius:18px;background:#fff7f2;border:1px solid #ffe0cf;color:#8d5432}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gallery img{height:100%;object-fit:cover;min-height:220px}
+.image-card{padding:10px}
+.text-card ul{padding-left:18px;margin-top:10px;color:var(--muted)}
+.text-card li{margin-bottom:8px}
+.cta{background:linear-gradient(135deg,#fff,#edfaff);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:34px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+.contact-list{display:grid;gap:14px}
+.contact-card{padding:18px 20px}
+.contact-card small{display:block;color:var(--muted);margin-bottom:6px;font-size:.88rem}
+.contact-card strong{font-size:1.05rem;color:var(--text);word-break:break-word}
+footer{margin-top:20px;padding:26px 0 40px;color:var(--muted);text-align:center;font-size:.95rem}
+@media (max-width:1100px){
+ .grid-4,.grid-3,.grid-2,.gallery,.hero-grid,.split,.cta{grid-template-columns:1fr 1fr}
+ .hero-grid,.split,.cta{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+ .nav-inner{flex-direction:column;align-items:flex-start}
+ .nav-links{gap:14px}
+ .hero-stats,.grid-4,.grid-3,.grid-2,.gallery{grid-template-columns:1fr}
+ .hero{padding-top:40px}
+}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <div class="logo"><div class="logo-badge">SS</div><span>South Sky Travel</span></div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#destinations">Destinations</a>
+      <a href="tours.html">Tour Pages</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="nav-cta">Plan Your Trip</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="about">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-badge">✨ English-Speaking Tour Service Across Guangdong</div>
+      <h1>Discover <span>Guangdong</span> with real local routes and real tour visuals</h1>
+      <p>
+        This homepage keeps the polished travel style, while the detailed route content has been moved into a dedicated tour page.
+        The tour page uses the actual images from your materials and converts the text inside those visuals into clean, readable English text.
+      </p>
+      <div class="hero-actions">
+        <a href="tours.html" class="btn btn-primary">Open Tour Pages</a>
+        <a href="#pricing" class="btn btn-light">See Prices</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><h3>3</h3><p>Shenzhen routes</p></div>
+        <div class="stat"><h3>4+</h3><p>City and cultural destinations</p></div>
+        <div class="stat"><h3>3</h3><p>Enterprise visit options</p></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img src="assets/image4.jpeg" alt="Guangzhou one-day tour poster">
+      <div class="overlay-box">
+        <small>Featured Page</small>
+        <h3>The new Tour Pages section presents the image content as readable text, with the original images shown beside it.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="destinations">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">Featured Destinations</div>
+      <h2>Main routes now organized as destination pages</h2>
+      <p>Each destination route is displayed with actual material images, clearer text, and a cleaner browsing experience for clients.</p>
+    </div>
+    <div class="grid-4">
+      <div class="destination-card">
+        <img src="assets/image1.jpeg" alt="Shenzhen cover">
+        <div class="content">
+          <h3>Shenzhen</h3>
+          <p>Technology-focused city routes including DJI, autonomous driving, robotics, and enterprise visits.</p>
+          <div class="chips"><span class="chip">DJI</span><span class="chip">Baidu</span><span class="chip">BGI</span><span class="chip">BYD</span></div>
+        </div>
+      </div>
+      <div class="destination-card">
+        <img src="assets/image4.jpeg" alt="Guangzhou tour">
+        <div class="content">
+          <h3>Guangzhou</h3>
+          <p>Classic city culture, Cantonese cuisine, heritage architecture, river views, and skyline nightlife.</p>
+          <div class="chips"><span class="chip">Yongqing Fang</span><span class="chip">Chen Clan</span><span class="chip">Canton Tower</span></div>
+        </div>
+      </div>
+      <div class="destination-card">
+        <img src="assets/image5.jpeg" alt="Qingyuan adventure">
+        <div class="content">
+          <h3>Qingyuan</h3>
+          <p>Nature and adventure route with a glass bridge, waterfalls, canyon rides, and scenic mountain views.</p>
+          <div class="chips"><span class="chip">Glass Bridge</span><span class="chip">Waterfall</span><span class="chip">Adventure</span></div>
+        </div>
+      </div>
+      <div class="destination-card">
+        <img src="assets/image6.jpeg" alt="Jiangmen two-day tour">
+        <div class="content">
+          <h3>Jiangmen</h3>
+          <p>Two-day culture route with watchtowers, pastry workshops, Chikan Ancient Town, and Liyuan Garden.</p>
+          <div class="chips"><span class="chip">2-Day Route</span><span class="chip">Diaolou</span><span class="chip">Ancient Town</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container split">
+    <div>
+      <div class="section-head" style="text-align:left;margin-bottom:20px">
+        <div class="tag">What Changed</div>
+        <h2>Text-first route presentation</h2>
+        <p>The old image-heavy content is now easier to read. Instead of making users zoom into posters, the important route details have been rewritten as normal website text while the original visuals remain visible.</p>
+      </div>
+      <div class="timeline">
+        <div class="tour-card"><div class="tour-icon">📝</div><div><span class="tour-time">Readable</span><h3>Text extracted into sections</h3><p>Timings, route names, highlights, and visit descriptions are now typed out in English for faster browsing.</p></div></div>
+        <div class="tour-card"><div class="tour-icon">🖼️</div><div><span class="tour-time">Visual</span><h3>Only real available images used</h3><p>The site now relies on the existing images from your material instead of unrelated stock photos.</p></div></div>
+        <div class="tour-card"><div class="tour-icon">🧭</div><div><span class="tour-time">Navigation</span><h3>Homepage + internal page structure</h3><p>The main page stays as the front page, and the newly built route page has been attached from the top navigation.</p></div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img src="assets/image8.jpeg" alt="Baidu route page">
+      <div class="overlay-box">
+        <small>Internal Page</small>
+        <h3>Tour Pages now combine enterprise visits, city routes, pricing notes, and route-specific images in one clean sectioned layout.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">Pricing Snapshot</div>
+      <h2>Current route pricing from the provided material</h2>
+      <p>These values were taken from the available route information and placed into website cards for easier reading.</p>
+    </div>
+    <div class="grid-4">
+      <div class="price-card"><div class="content"><h3>Shenzhen</h3><div class="price">Custom</div><p>Three route options are listed, but no fixed price was shown in the provided text.</p></div></div>
+      <div class="price-card"><div class="content"><h3>Guangzhou</h3><div class="price">Custom</div><p>One route is listed. No fixed public price was shown in the provided summary.</p></div></div>
+      <div class="price-card"><div class="content"><h3>Qingyuan</h3><div class="price">250 USD / person</div><p>All-inclusive route. Minimum group size: 2 people.</p></div></div>
+      <div class="price-card"><div class="content"><h3>Foshan</h3><div class="price">220 USD / person</div><p>Minimum group size: 2 people.</p></div></div>
+    </div>
+    <div class="grid-3" style="margin-top:24px">
+      <div class="price-card"><div class="content"><h3>Jiangmen</h3><div class="price">TBD</div><p>Two-day route with accommodation involved. Pricing was marked as not yet available.</p></div></div>
+      <div class="price-card"><div class="content"><h3>Baidu Visit</h3><div class="price">150 USD / person</div><p>Enterprise visit route. Team requirement: at least 10 people.</p></div></div>
+      <div class="price-card"><div class="content"><h3>BGI Genomics Visit</h3><div class="price">120 USD / person</div><p>Enterprise visit route. Team requirement: at least 10 people.</p></div></div>
+    </div>
+    <div class="grid-2" style="margin-top:24px">
+      <div class="price-card"><div class="content"><h3>BYD Museum Only</h3><div class="price">180 USD / person</div><p>Enterprise visit route for teams of at least 10 people.</p></div></div>
+      <div class="price-card"><div class="content"><h3>BYD Museum + Headquarters</h3><div class="price">280 USD / person</div><p>Headquarters access is harder to secure and may not always be approved.</p></div></div>
+    </div>
+    <div class="notice" style="margin-top:24px">Pricing and route availability should be reconfirmed before publishing or sending to clients.</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="cta">
+      <div>
+        <h2>Let’s plan your Guangdong trip</h2>
+        <p>Use the homepage as the landing page and send visitors into the detailed internal page for route-by-route information, enterprise visits, and tour image galleries.</p>
+        <div class="hero-actions">
+          <a href="tours.html" class="btn btn-primary">Browse Tour Pages</a>
+          <a href="mailto:amberjiang001@163.com" class="btn btn-light">Send Email</a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="contact-card"><small>Business WhatsApp</small><strong>+86 18954582257</strong></div>
+        <div class="contact-card"><small>Email</small><strong>amberjiang001@163.com</strong></div>
+        <div class="contact-card"><small>WeChat</small><strong>amberjiang001</strong></div>
+        <div class="contact-card"><small>Company</small><strong>South Sky Travel Co., Ltd</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container">© 2026 South Sky Travel Co., Ltd — homepage plus attached internal route pages.</div></footer>
+</body>
+</html>

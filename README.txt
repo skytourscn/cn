@@ -1,4 +1,1 @@
-使用说明
-1. 打开 index.html 即可预览页面。
-2. 所有图片素材位于 assets 文件夹。
-3. 页面为纯静态 HTML，可直接继续修改文案、LOGO、联系方式与按钮。
+Open index.html as the homepage. The new internal page is tours.html and is linked from the top navigation.

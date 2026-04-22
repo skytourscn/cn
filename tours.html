@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tour Pages | South Sky Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#19b5c9;
+  --primary-dark:#0b8fa3;
+  --secondary:#ff8a65;
+  --accent:#7c4dff;
+  --bg:#f8fcff;
+  --bg-soft:#eef8fb;
+  --card:#ffffff;
+  --text:#17324d;
+  --muted:#5f7891;
+  --line:#dbe9f3;
+  --shadow:0 12px 35px rgba(21,87,120,.12);
+  --radius:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(25,181,201,.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(255,138,101,.18), transparent 24%),
+    linear-gradient(180deg,#f9fdff 0%,#f2fbff 100%);
+  color:var(--text);line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;border-radius:18px}
+.container{width:min(1180px,92%);margin:auto}
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.84);backdrop-filter:blur(14px);border-bottom:1px solid rgba(219,233,243,.9)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.18rem}
+.logo-badge{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:var(--shadow)}
+.nav-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-weight:500;transition:.25s}
+.nav-links a:hover,.nav-links a.active{color:var(--primary-dark)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:12px 18px;border-radius:999px;font-weight:600;box-shadow:0 10px 24px rgba(25,181,201,.25)}
+.hero{padding:70px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:36px;align-items:center}
+.hero-badge,.tag{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--primary-dark);font-weight:600;box-shadow:var(--shadow)}
+.hero h1{font-size:clamp(2.2rem,4vw,4.15rem);line-height:1.06;font-weight:800;margin:18px 0}
+.hero h1 span{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);font-size:1.04rem;max-width:640px;margin-bottom:28px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;transition:.25s;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:0 12px 24px rgba(25,181,201,.25)}
+.btn-light{background:#fff;color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow)}
+.btn:hover{transform:translateY(-2px)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat,.card,.tour-card,.feature-card,.price-card,.contact-card,.text-card,.image-card{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.stat{padding:18px}
+.stat h3{font-size:1.6rem;color:var(--primary-dark);margin-bottom:4px}
+.stat p{color:var(--muted);font-size:.92rem}
+.hero-card{background:rgba(255,255,255,.78);border:1px solid rgba(219,233,243,.9);border-radius:30px;padding:16px;box-shadow:0 24px 48px rgba(20,85,120,.16)}
+.hero-card .overlay-box{margin-top:16px;background:linear-gradient(135deg,#fff,#f2fbff);border:1px solid var(--line);border-radius:20px;padding:18px}
+.overlay-box small{color:var(--primary-dark);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.overlay-box h3{margin-top:6px;font-size:1.25rem;line-height:1.35}
+section{padding:40px 0 70px}
+.section-head{text-align:center;margin-bottom:34px}
+.section-head h2{font-size:clamp(1.8rem,3vw,3rem);margin:14px 0 10px;font-weight:800}
+.section-head p{color:var(--muted);max-width:760px;margin:auto}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card,.destination-card,.feature-card,.price-card,.text-card,.contact-card{overflow:hidden}
+.destination-card .content,.feature-card .content,.price-card .content,.text-card .content{padding:20px}
+.destination-card h3,.feature-card h3,.price-card h3,.text-card h3{margin-bottom:8px;font-size:1.22rem}
+.destination-card p,.feature-card p,.price-card p,.text-card p,.muted{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#eef8fb;color:var(--primary-dark);padding:8px 12px;border-radius:999px;font-size:.82rem;font-weight:600;border:1px solid #d5eef2}
+.timeline{display:flex;flex-direction:column;gap:18px}
+.tour-card{padding:20px;display:flex;gap:16px;align-items:flex-start}
+.tour-icon{min-width:58px;width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:1.5rem;background:linear-gradient(135deg,#e5faff,#fff0ea);border:1px solid var(--line)}
+.tour-time{display:inline-block;margin-bottom:8px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:8px 12px;border-radius:999px;font-size:.82rem;font-weight:700}
+.tour-card h3{font-size:1.12rem;margin-bottom:6px}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}
+.feature-card{padding:22px}
+.feature-icon{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;margin-bottom:14px;font-size:1.6rem;background:linear-gradient(135deg,#e8fafd,#fef1ec)}
+.price-card .price{font-size:1.8rem;font-weight:800;color:var(--primary-dark);margin-bottom:8px}
+.notice{padding:18px 20px;border-radius:18px;background:#fff7f2;border:1px solid #ffe0cf;color:#8d5432}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gallery img{height:100%;object-fit:cover;min-height:220px}
+.image-card{padding:10px}
+.text-card ul{padding-left:18px;margin-top:10px;color:var(--muted)}
+.text-card li{margin-bottom:8px}
+.cta{background:linear-gradient(135deg,#fff,#edfaff);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:34px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+.contact-list{display:grid;gap:14px}
+.contact-card{padding:18px 20px}
+.contact-card small{display:block;color:var(--muted);margin-bottom:6px;font-size:.88rem}
+.contact-card strong{font-size:1.05rem;color:var(--text);word-break:break-word}
+footer{margin-top:20px;padding:26px 0 40px;color:var(--muted);text-align:center;font-size:.95rem}
+@media (max-width:1100px){
+ .grid-4,.grid-3,.grid-2,.gallery,.hero-grid,.split,.cta{grid-template-columns:1fr 1fr}
+ .hero-grid,.split,.cta{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+ .nav-inner{flex-direction:column;align-items:flex-start}
+ .nav-links{gap:14px}
+ .hero-stats,.grid-4,.grid-3,.grid-2,.gallery{grid-template-columns:1fr}
+ .hero{padding-top:40px}
+}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <div class="logo"><div class="logo-badge">SS</div><span>South Sky Travel</span></div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#city-routes" class="active">City Routes</a>
+      <a href="#enterprise">Enterprise Visits</a>
+      <a href="#gallery">Gallery</a>
+      <a href="index.html#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-badge">📘 Internal Tour Page</div>
+      <h1>Actual route images, but the important content is now <span>real website text</span></h1>
+      <p>This page turns the poster-style materials into a clearer travel presentation. Each section includes typed route details and keeps the original image beside it for visual support.</p>
+      <div class="hero-actions">
+        <a href="#city-routes" class="btn btn-primary">See Routes</a>
+        <a href="#enterprise" class="btn btn-light">See Company Visits</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img src="assets/image2.jpeg" alt="DJI route">
+      <div class="overlay-box"><small>Text + Image</small><h3>Easy to read for clients, easier to present, and still visually strong.</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="city-routes">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">City Routes</div>
+      <h2>Main destination routes</h2>
+      <p>These sections are based on the content visible in the provided route images.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="text-card"><div class="content">
+        <h3>Shenzhen Route 1 — DJI One-Day Tour</h3>
+        <p class="muted">A technology route focused on DJI flagship experiences, autonomous driving, robotics, and a themed dining stop.</p>
+        <ul>
+          <li><strong>10:00–12:00:</strong> DJI Flagship Store at OCT Harbour. Learn about DJI history, products, brand knowledge, and optional hands-on drone trial flight.</li>
+          <li><strong>12:00–14:00:</strong> Drone delivery lunch. A tech-oriented lunch experience centered on app-based ordering and everyday innovation.</li>
+          <li><strong>14:00–15:00:</strong> Driverless car experience with at least 30 minutes of real self-driving ride time.</li>
+          <li><strong>15:30–17:30:</strong> Cutting-edge robot store visit with robot shows, robot dogs, interactive games, and home/public service robots.</li>
+          <li><strong>18:00–19:30:</strong> Dinner at a tech-themed robot restaurant where robots deliver meals.</li>
+        </ul>
+      </div></div>
+      <div class="image-card"><img src="assets/image2.jpeg" alt="DJI one-day tour poster"></div>
+
+      <div class="text-card"><div class="content">
+        <h3>Shenzhen Route 2 — DJI Sky City Route</h3>
+        <p class="muted">A shorter premium version that combines DJI retail, futuristic dining, autonomous driving, and a headquarters visit.</p>
+        <ul>
+          <li><strong>10:00–12:00:</strong> DJI Flagship Store at OCT Harbour.</li>
+          <li><strong>12:30–14:30:</strong> Lunch at a tech-themed robot restaurant.</li>
+          <li><strong>14:30–15:30:</strong> Driverless car experience.</li>
+          <li><strong>16:00–17:30:</strong> DJI Sky City headquarters visit, including entry and first-floor exhibition access.</li>
+        </ul>
+      </div></div>
+      <div class="image-card"><img src="assets/image3.jpeg" alt="DJI Sky City tour poster"></div>
+
+      <div class="text-card"><div class="content">
+        <h3>Guangzhou Route — One-Day City Tour</h3>
+        <p class="muted">A heritage-and-city route mixing Lingnan culture, Cantonese food, architecture, shopping, skyline views, and a river cruise.</p>
+        <ul>
+          <li><strong>09:00–11:30:</strong> Yongqing Fang and Cantonese Opera Art Museum.</li>
+          <li><strong>11:45–13:00:</strong> Tao Tao Ju heritage teahouse lunch.</li>
+          <li><strong>13:15–15:15:</strong> Chen Clan Academy with Lingnan architecture and folk art.</li>
+          <li><strong>15:30–17:45:</strong> Beijing Road Pedestrian Street for snacks, shopping, and pre-sunset city walking.</li>
+          <li><strong>18:00–19:45:</strong> Canton Tower for sunset and night skyline views.</li>
+          <li><strong>20:00–21:00:</strong> Pearl River Night Cruise.</li>
+        </ul>
+      </div></div>
+      <div class="image-card"><img src="assets/image4.jpeg" alt="Guangzhou one-day tour poster"></div>
+
+      <div class="text-card"><div class="content">
+        <h3>Qingyuan Route — One-Day Adventure Tour</h3>
+        <p class="muted">An outdoor route with transport, scenic dining, glass bridge views, cliff roller coaster, and canyon speed coaster experience.</p>
+        <ul>
+          <li><strong>08:30–11:30:</strong> Drive to Qingyuan with guide briefing.</li>
+          <li><strong>11:30–12:30:</strong> Local Cantonese lunch featuring Qingyuan chicken.</li>
+          <li><strong>12:30–14:00:</strong> Qingyuan Glass Bridge and mountain views.</li>
+          <li><strong>14:00–15:30:</strong> Cliff Roller Coaster.</li>
+          <li><strong>15:30–16:30:</strong> Canyon Speed Coaster.</li>
+          <li><strong>16:30 onward:</strong> Drive back to Shenzhen.</li>
+        </ul>
+      </div></div>
+      <div class="image-card"><img src="assets/image5.jpeg" alt="Qingyuan adventure tour poster"></div>
+
+      <div class="text-card"><div class="content">
+        <h3>Jiangmen Route — Two-Day Cultural Tour</h3>
+        <p class="muted">A two-day heritage route combining watchtower culture, pastry-making, Chikan Ancient Town, Kaiping watchtowers, and Liyuan Garden.</p>
+        <ul>
+          <li><strong>Day 1, 10:00–12:00:</strong> Cangdong Heritage Base, watchtower culture briefing, Chinese calligraphy, and traditional pastry workshop.</li>
+          <li><strong>Day 1, 15:00–21:30:</strong> Chikan Ancient Town with immersive cultural performances such as lion dance, iron flower show, and folk music.</li>
+          <li><strong>Day 2, 09:00–12:00:</strong> Kaiping Watchtowers tour with historical explanation.</li>
+          <li><strong>Day 2, 14:00–16:00:</strong> Liyuan Garden and Lingnan-West fusion architecture.</li>
+        </ul>
+      </div></div>
+      <div class="image-card"><img src="assets/image6.jpeg" alt="Jiangmen two-day tour poster"></div>
+
+      <div class="text-card"><div class="content">
+        <h3>Foshan Route — Kung Fu Culture One-Day Tour</h3>
+        <p class="muted">A culture route linking Foshan ancestral heritage, Lingnan lifestyle, and an authentic Wing Chun experience.</p>
+        <ul>
+          <li><strong>07:30–09:30:</strong> Depart Shenzhen for Foshan by private car.</li>
+          <li><strong>09:30–12:00:</strong> Foshan Ancestral Temple, lion dance performance, Wong Fei-hung Memorial Hall, and Ip Man Hall.</li>
+          <li><strong>12:00–15:00:</strong> Lingnan Tiandi for lunch, strolling, shopping, and photos.</li>
+          <li><strong>15:00–16:00:</strong> Wing Chun Kung Fu experience with a professional instructor.</li>
+          <li><strong>16:00–18:00:</strong> Return to Shenzhen.</li>
+        </ul>
+      </div></div>
+      <div class="image-card"><img src="assets/image7.jpeg" alt="Foshan kung fu tour poster"></div>
+    </div>
+  </div>
+</section>
+
+<section id="enterprise">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">Enterprise Visits</div>
+      <h2>Company visit routes</h2>
+      <p>These visits are presented as team experiences and were marked for larger groups in the supplied material.</p>
+    </div>
+    <div class="grid-2">
+      <div class="text-card"><div class="content">
+        <h3>Baidu Visit Itinerary</h3>
+        <ul>
+          <li>Visit Baidu Exhibition Hall to learn about Baidu history, Baidu Search, AI technologies, and cutting-edge innovations.</li>
+          <li>Professional presentation on Baidu autonomous driving technology, including principles, core technologies, development status, and applications.</li>
+          <li>Self-driving car experience in real road conditions.</li>
+          <li><strong>Price:</strong> 150 USD per person.</li>
+          <li><strong>Group rule:</strong> at least 10 people.</li>
+        </ul>
+      </div></div>
+      <div class="image-card"><img src="assets/image8.jpeg" alt="Baidu visit poster"></div>
+
+      <div class="text-card"><div class="content">
+        <h3>BGI Genomics Visit Tour</h3>
+        <ul>
+          <li>Introduction to BGI history, global achievements, and science role.</li>
+          <li>Lobby tour and explanation of development milestones.</li>
+          <li>Outdoor Science Zone with genomics applications in agriculture, plants, and ecology.</li>
+          <li>Laboratory viewing area for gene sequencing through glass gallery.</li>
+          <li>BGI Wildlife Zone featuring biodiversity-related content.</li>
+          <li><strong>Price:</strong> 120 USD per person.</li>
+          <li><strong>Group rule:</strong> at least 10 people.</li>
+        </ul>
+      </div></div>
+      <div class="image-card"><img src="assets/image9.jpeg" alt="BGI visit poster"></div>
+
+      <div class="text-card"><div class="content">
+        <h3>BYD Site Visit</h3>
+        <ul>
+          <li><strong>14:30–15:30:</strong> Visit BYD History Museum to understand BYD's innovation logic, vertical integration, and green vision.</li>
+          <li><strong>16:00–18:00:</strong> Visit BYD headquarters.</li>
+          <li><strong>16:00–16:30:</strong> View BYD new-energy vehicles at Libinlou Square.</li>
+          <li><strong>16:30–17:10:</strong> Visit the Group Exhibition Hall and Battery Laboratory.</li>
+          <li><strong>17:10–18:00:</strong> Dinner and group photo session.</li>
+          <li><strong>Price:</strong> Museum only 180 USD per person; Museum + Headquarters 280 USD per person.</li>
+          <li><strong>Group rule:</strong> at least 10 people. Headquarters approval may be difficult.</li>
+        </ul>
+      </div></div>
+      <div class="image-card"><img src="assets/image10.jpeg" alt="BYD visit poster"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">Quick Price Board</div>
+      <h2>Prices and notes</h2>
+      <p>These are the pricing notes available from the material summary.</p>
+    </div>
+    <div class="grid-3">
+      <div class="price-card"><div class="content"><h3>Qingyuan Route</h3><div class="price">250 USD</div><p>Per person, all-inclusive, minimum 2 travelers.</p></div></div>
+      <div class="price-card"><div class="content"><h3>Foshan Route</h3><div class="price">220 USD</div><p>Per person, minimum 2 travelers.</p></div></div>
+      <div class="price-card"><div class="content"><h3>Jiangmen Route</h3><div class="price">TBD</div><p>Two-day route with accommodation. Price not yet available.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">Original Visual Materials</div>
+      <h2>Gallery of available images</h2>
+      <p>Only the actual existing images from your material are used here.</p>
+    </div>
+    <div class="gallery">
+      <div class="image-card"><img src="assets/image1.jpeg" alt="Shenzhen cover"></div>
+      <div class="image-card"><img src="assets/image4.jpeg" alt="Guangzhou route"></div>
+      <div class="image-card"><img src="assets/image5.jpeg" alt="Qingyuan route"></div>
+      <div class="image-card"><img src="assets/image6.jpeg" alt="Jiangmen route"></div>
+      <div class="image-card"><img src="assets/image8.jpeg" alt="Baidu visit"></div>
+      <div class="image-card"><img src="assets/image10.jpeg" alt="BYD visit"></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container">© 2026 South Sky Travel Co., Ltd — internal page created from the provided route visuals.</div></footer>
+</body>
+</html>
