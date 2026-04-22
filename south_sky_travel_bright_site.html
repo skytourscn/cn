@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>South Sky Travel | Guangdong Tours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#19b5c9;
+      --primary-dark:#0b8fa3;
+      --secondary:#ff8a65;
+      --accent:#7c4dff;
+      --bg:#f8fcff;
+      --card:#ffffff;
+      --text:#17324d;
+      --muted:#5f7891;
+      --line:#dbe9f3;
+      --shadow:0 12px 35px rgba(21, 87, 120, 0.12);
+      --radius:22px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(25,181,201,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(255,138,101,0.18), transparent 24%),
+        linear-gradient(180deg, #f9fdff 0%, #f2fbff 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{width:100%;display:block;border-radius:18px}
+    .container{width:min(1180px,92%);margin:auto}
+    .navbar{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(255,255,255,0.82);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(219,233,243,0.9);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 0;gap:20px;
+    }
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.2rem}
+    .logo-badge{
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      color:#fff;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));
+      box-shadow:var(--shadow);
+    }
+    .nav-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+    .nav-links a{color:var(--muted);font-weight:500;transition:.25s}
+    .nav-links a:hover{color:var(--primary-dark)}
+    .nav-cta{
+      display:inline-flex;align-items:center;gap:8px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;padding:12px 18px;border-radius:999px;font-weight:600;
+      box-shadow:0 10px 24px rgba(25,181,201,0.25);transition:.25s;
+    }
+    .nav-cta:hover,.btn:hover,.destination-card:hover,.feature-card:hover,.tour-card:hover,.contact-card:hover{transform:translateY(-2px)}
+    .hero{padding:70px 0 40px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;
+      background:#fff;border:1px solid var(--line);color:var(--primary-dark);font-weight:600;
+      box-shadow:var(--shadow);margin-bottom:18px;
+    }
+    .hero h1{font-size:clamp(2.2rem,4vw,4.2rem);line-height:1.05;font-weight:800;margin-bottom:18px}
+    .hero h1 span{
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .hero p{color:var(--muted);font-size:1.05rem;max-width:620px;margin-bottom:28px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:14px 22px;border-radius:999px;font-weight:600;transition:.25s ease;
+      cursor:pointer;border:none;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;
+      box-shadow:0 12px 24px rgba(25,181,201,0.25);
+    }
+    .btn-light{
+      background:#fff;color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow);
+    }
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+    .stat{
+      background:rgba(255,255,255,0.86);border:1px solid var(--line);
+      border-radius:18px;padding:18px;box-shadow:var(--shadow);
+    }
+    .stat h3{font-size:1.6rem;color:var(--primary-dark);margin-bottom:4px}
+    .stat p{margin:0;font-size:.92rem}
+    .hero-card{
+      background:rgba(255,255,255,0.78);border:1px solid rgba(219,233,243,0.9);
+      border-radius:30px;padding:16px;box-shadow:0 24px 48px rgba(20,85,120,0.16);
+      position:relative;overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";position:absolute;inset:auto auto -60px -60px;width:180px;height:180px;
+      background:radial-gradient(circle, rgba(124,77,255,0.22), transparent 70%);pointer-events:none;
+    }
+    .hero-card .overlay-box{
+      margin-top:16px;background:linear-gradient(135deg,#ffffff,#f2fbff);
+      border:1px solid var(--line);border-radius:20px;padding:18px;
+    }
+    .overlay-box small{color:var(--primary-dark);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+    .overlay-box h3{margin-top:6px;font-size:1.25rem;line-height:1.35}
+    section{padding:40px 0 70px}
+    .section-head{text-align:center;margin-bottom:34px}
+    .section-head .tag{
+      display:inline-block;color:var(--primary-dark);background:#fff;border:1px solid var(--line);
+      border-radius:999px;padding:8px 14px;font-size:.9rem;font-weight:600;margin-bottom:14px;
+    }
+    .section-head h2{font-size:clamp(1.8rem,3vw,3rem);margin-bottom:10px;font-weight:800}
+    .section-head p{color:var(--muted);max-width:740px;margin:auto}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .destination-card,.feature-card,.tour-card,.contact-card{
+      background:rgba(255,255,255,0.92);border:1px solid var(--line);border-radius:var(--radius);
+      overflow:hidden;box-shadow:var(--shadow);transition:.3s;
+    }
+    .destination-card .content,.feature-card .content{padding:20px}
+    .destination-card h3,.feature-card h3{margin-bottom:8px;font-size:1.25rem}
+    .destination-card p,.feature-card p{color:var(--muted);font-size:.96rem;margin-bottom:14px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{
+      background:#eef8fb;color:var(--primary-dark);padding:8px 12px;border-radius:999px;
+      font-size:.82rem;font-weight:600;border:1px solid #d5eef2;
+    }
+    .timeline-wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:26px;align-items:start}
+    .timeline{display:flex;flex-direction:column;gap:18px}
+    .tour-card{padding:20px;display:flex;gap:16px;align-items:flex-start}
+    .tour-icon{
+      min-width:58px;width:58px;height:58px;border-radius:18px;display:grid;place-items:center;
+      font-size:1.5rem;background:linear-gradient(135deg,#e5faff,#fff0ea);border:1px solid var(--line);
+    }
+    .tour-time{
+      display:inline-block;margin-bottom:8px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;padding:8px 12px;border-radius:999px;font-size:.82rem;font-weight:700;
+    }
+    .tour-card h3{font-size:1.12rem;margin-bottom:6px}
+    .tour-card p{color:var(--muted);font-size:.96rem}
+    .side-highlight{
+      background:linear-gradient(180deg,#ffffff,#eef9fd);border:1px solid var(--line);
+      border-radius:28px;padding:18px;box-shadow:var(--shadow);
+    }
+    .side-highlight img{margin-bottom:16px}
+    .info-boxes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+    .info-box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
+    .info-box strong{display:block;margin-bottom:6px;color:var(--primary-dark)}
+    .feature-card{padding:22px}
+    .feature-icon{
+      width:62px;height:62px;border-radius:20px;display:grid;place-items:center;margin-bottom:14px;
+      font-size:1.6rem;background:linear-gradient(135deg,#e8fafd,#fef1ec);
+    }
+    .cta{
+      background:linear-gradient(135deg,#ffffff,#edfaff);border:1px solid var(--line);
+      border-radius:30px;box-shadow:var(--shadow);padding:34px;
+      display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;
+    }
+    .cta h2{font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:12px;font-weight:800}
+    .cta p{color:var(--muted);margin-bottom:20px;max-width:640px}
+    .contact-list{display:grid;gap:14px}
+    .contact-card{padding:18px 20px}
+    .contact-card small{display:block;color:var(--muted);margin-bottom:6px;font-size:.88rem}
+    .contact-card strong{font-size:1.05rem;color:var(--text);word-break:break-word}
+    footer{margin-top:20px;padding:26px 0 40px;color:var(--muted);text-align:center;font-size:.95rem}
+    @media (max-width:1100px){
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .hero-grid,.timeline-wrap,.cta{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .nav-inner{flex-direction:column;align-items:flex-start}
+      .nav-links{gap:14px}
+      .hero-stats,.grid-4,.grid-3,.info-boxes{grid-template-columns:1fr}
+      .hero{padding-top:40px}
+      .hero h1{line-height:1.12}
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">
+        <div class="logo-badge">SS</div>
+        <span>South Sky Travel</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#guangzhou">Guangzhou Tour</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#contact" class="nav-cta">Plan Your Trip</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="about">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">✨ English-Speaking Tour Service Across Guangdong</div>
+        <h1>Discover <span>Guangdong</span> in a brighter, more beautiful way</h1>
+        <p>
+          Welcome to South Sky Travel — your stylish local travel partner for unforgettable experiences in Shenzhen, Guangzhou, Qingyuan, and Jiangmen.
+          Enjoy authentic culture, modern city life, local food, and unique technology tours with a smooth and friendly experience.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book a Tour</a>
+          <a href="#guangzhou" class="btn btn-light">See Sample Itinerary</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><h3>4+</h3><p>Main cities and destinations</p></div>
+          <div class="stat"><h3>100%</h3><p>English-friendly guided service</p></div>
+          <div class="stat"><h3>Custom</h3><p>Private and flexible travel plans</p></div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=80" alt="Guangzhou skyline">
+        <div class="overlay-box">
+          <small>Featured Travel Mood</small>
+          <h3>Culture in the morning, Cantonese food at noon, and skyline views at sunset.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="destinations">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag">Top Destinations</div>
+        <h2>Explore our most popular cities</h2>
+        <p>From futuristic technology and drone experiences to Lingnan heritage, mountain views, and traditional culture, every city offers a different side of Guangdong.</p>
+      </div>
+      <div class="grid-4">
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80" alt="Shenzhen">
+          <div class="content">
+            <h3>Shenzhen</h3>
+            <p>City of future technology, innovation, robotics, and drone culture.</p>
+            <div class="chips"><span class="chip">DJI Sky City</span><span class="chip">Robot Store</span><span class="chip">Tech Tours</span></div>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=1200&q=80" alt="Guangzhou">
+          <div class="content">
+            <h3>Guangzhou</h3>
+            <p>Traditional Cantonese lifestyle, tea culture, old streets, and famous landmarks.</p>
+            <div class="chips"><span class="chip">Yongqing Fang</span><span class="chip">Dim Sum</span><span class="chip">Canton Tower</span></div>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Qingyuan">
+          <div class="content">
+            <h3>Qingyuan</h3>
+            <p>Nature, outdoor adventure, scenic mountains, glass bridges, and waterfalls.</p>
+            <div class="chips"><span class="chip">Mountains</span><span class="chip">Glass Bridge</span><span class="chip">Rafting</span></div>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Jiangmen">
+          <div class="content">
+            <h3>Jiangmen</h3>
+            <p>A beautiful blend of watchtower heritage, old towns, and overseas Chinese culture.</p>
+            <div class="chips"><span class="chip">Kaiping Diaolou</span><span class="chip">Chikan Town</span><span class="chip">Liyuan Garden</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="guangzhou">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag">Sample Itinerary</div>
+        <h2>Guangzhou One-Day Tour</h2>
+        <p>A full-day experience combining Lingnan heritage, famous Cantonese cuisine, folk architecture, shopping streets, and a magical skyline finish.</p>
+      </div>
+      <div class="timeline-wrap">
+        <div class="timeline">
+          <div class="tour-card"><div class="tour-icon">🏮</div><div><span class="tour-time">09:00 – 11:30</span><h3>Yongqing Fang</h3><p>Enjoy a relaxed walk through historical Lingnan alleyways and explore one of Guangzhou’s cultural gems.</p></div></div>
+          <div class="tour-card"><div class="tour-icon">🥢</div><div><span class="tour-time">11:45 – 13:00</span><h3>Tao Tao Ju Lunch</h3><p>Enjoy classic Cantonese dishes and dim sum in a famous traditional teahouse atmosphere.</p></div></div>
+          <div class="tour-card"><div class="tour-icon">🏛️</div><div><span class="tour-time">13:15 – 15:15</span><h3>Chen Clan Academy</h3><p>Admire the exquisite wood, brick, and stone carvings and discover beautiful folk art traditions.</p></div></div>
+          <div class="tour-card"><div class="tour-icon">🛍️</div><div><span class="tour-time">15:30 – 17:45</span><h3>Beijing Road Pedestrian Street</h3><p>Walk through one of the city’s most lively shopping streets and experience old-meets-new Guangzhou.</p></div></div>
+          <div class="tour-card"><div class="tour-icon">🌆</div><div><span class="tour-time">18:00 – 19:45</span><h3>Canton Tower</h3><p>Finish the day with the best viewing time for sunset colors and the glowing night skyline.</p></div></div>
+        </div>
+        <div class="side-highlight">
+          <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=1200&q=80" alt="Guangzhou experience">
+          <div class="info-boxes">
+            <div class="info-box"><strong>Style</strong>Culture + Food + City Walk</div>
+            <div class="info-box"><strong>Best For</strong>First-time visitors</div>
+            <div class="info-box"><strong>Travel Mood</strong>Elegant and relaxing</div>
+            <div class="info-box"><strong>Highlight</strong>Sunset at Canton Tower</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiences">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag">Unique Experiences</div>
+        <h2>More than a normal sightseeing tour</h2>
+        <p>Create a more memorable trip with special themed experiences in technology, culture, and immersive local exploration.</p>
+      </div>
+      <div class="grid-3">
+        <div class="feature-card"><div class="feature-icon">🚁</div><div class="content" style="padding:0;"><h3>DJI Sky City</h3><p>Visit DJI’s impressive headquarters and discover the story, design, and innovation behind the world’s leading drone brand.</p></div></div>
+        <div class="feature-card"><div class="feature-icon">🤖</div><div class="content" style="padding:0;"><h3>6S Robot Store</h3><p>Explore life robots, industrial robots, and fun mind-control robot games in a highly interactive technology experience.</p></div></div>
+        <div class="feature-card"><div class="feature-icon">🏯</div><div class="content" style="padding:0;"><h3>Jiangmen 2-Day Tour</h3><p>Discover Kaiping watchtowers, Chikan Ancient Town, traditional workshops, and the rich Qiaoxiang cultural atmosphere.</p></div></div>
+        <div class="feature-card"><div class="feature-icon">🌿</div><div class="content" style="padding:0;"><h3>Qingyuan Nature Adventure</h3><p>Ideal for travelers who love fresh air, mountain scenery, bridges, and exciting outdoor activities.</p></div></div>
+        <div class="feature-card"><div class="feature-icon">🍵</div><div class="content" style="padding:0;"><h3>Authentic Cantonese Lifestyle</h3><p>Experience morning tea, local food culture, old neighborhoods, and a genuine daily-life atmosphere.</p></div></div>
+        <div class="feature-card"><div class="feature-icon">✨</div><div class="content" style="padding:0;"><h3>Customized Private Tours</h3><p>Every itinerary can be adjusted based on your time, interests, group type, and travel style.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h2>Let’s plan your Guangdong trip</h2>
+          <p>Whether you want a culture-filled Guangzhou day, a futuristic Shenzhen tech tour, or a custom multi-city trip, South Sky Travel is ready to help you enjoy a smooth, stylish, and memorable journey.</p>
+          <div class="hero-actions">
+            <a href="https://wa.me/8618954582257" class="btn btn-primary">WhatsApp Us</a>
+            <a href="mailto:amberjiang001@163.com" class="btn btn-light">Send Email</a>
+          </div>
+        </div>
+        <div class="contact-list">
+          <div class="contact-card"><small>Business WhatsApp</small><strong>+86 18954582257</strong></div>
+          <div class="contact-card"><small>Email</small><strong>amberjiang001@163.com</strong></div>
+          <div class="contact-card"><small>WeChat</small><strong>amberjiang001</strong></div>
+          <div class="contact-card"><small>Company</small><strong>South Sky Travel Co., Ltd</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2026 South Sky Travel Co., Ltd — Bright journeys, local stories, unforgettable memories.</div>
+  </footer>
+</body>
+</html>
